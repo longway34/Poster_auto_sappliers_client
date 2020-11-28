@@ -31,6 +31,7 @@ const initialState = {
 		firmAddress: "",
 		firmType: "",
 		firmPhone: "",
+		firmPosterUrl: "",
 		firmLogoUrl: "",
 		firmOwner: "",
 		firmEmail: "",

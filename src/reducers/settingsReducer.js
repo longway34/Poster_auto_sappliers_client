@@ -18,18 +18,19 @@ export default function settingsReducer(state = initialState, action) {
 			})
 		}
 		case actions.settings.FIRM_INFO_RESPONSE:{
-			let data = action.data.response ? action.data.response : action.data;
+			let responce = action.data.response ? action.data.response : action.data;
 			return Object.assign({}, state, {
 				proxyHost: getProxyHost(),
-				firmName: data.company_name,
-				firmAddress: data.FIZ_ADRESS_CITY,
-				firmPhone: data.FIZ_ADRESS_PHONE,
-				firmType: parseInt(data.company_type),
-				firmLogoUrl: action.data.firmLogoUrl,
-				firmOwner: data.name,
-				FirmEmail: data.email,
+				firmName: responce.company_name,
+				firmAddress: responce.FIZ_ADRESS_CITY,
+				firmPhone: responce.FIZ_ADRESS_PHONE,
+				firmType: parseInt(responce.company_type),
+				firmPosterUrl: action.data.firmPosterUrl ? action.data.firmPosterUrl : "",
+				firmLogoUrl: action.data.firmLogoUrl ? action.data.firmLogoUrl : "",
+				firmOwner: responce.name,
+				FirmEmail: responce.email,
 				// FirmLogoImage: action.data.FirmLogoImage,
-				FirmPosterIdUrl: data.COMPANY_ID
+				FirmPosterIdUrl: responce.COMPANY_ID
 			})
 		}
 		default: return state
