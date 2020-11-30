@@ -1,54 +1,27 @@
 import React from "react";
-import { Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import createBrowserHistory from "history/createBrowserHistory";
 
 import PropTypes from "prop-types";
 import { withStyles, createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
-// import Divider from "@material-ui/core/Divider";
-// import Toolbar from "@material-ui/core/Toolbar";
-// import Typography from "@material-ui/core/Typography";
-// import IconButton from "@material-ui/core/IconButton";
-// import MenuIcon from "@material-ui/icons/Menu";
 
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Typography from "@material-ui/core/Typography";
-// import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
-// import DraftsIcon from "@material-ui/icons/Drafts";
-// import StarIcon from "@material-ui/icons/Star";
-// import SendIcon from "@material-ui/icons/Send";
 
-// import StoragesListContaines from '../containers/StoragesListContainer'
 import StoragesListContainer from "../containers/StoragesListContainer";
+import AboutPageContainer from '../containers/AboutPageContainer';
 
-// import MailIcon from "@material-ui/icons/Mail";
-// import DeleteIcon from "@material-ui/icons/Delete";
-// import ReportIcon from "@material-ui/icons/Report";
-
-// import StoragesListContainer from "../containers/StoragesListContainer";
-// import ShablonPropertyComponent from "../components/ShablonPropertyComponent";
 import ShablonsListContainer from "../containers/ShablonsListContainer";
 import StorageOrdersContainer from '../containers/StorageOrdersContainer';
 import ShablonOrdersContainer from '../containers/ShablonOrdersContainer';
-
-// import ShablonsListComponent from "../components/ShablonsListComponent";
-// import Cards from "../pages/Cards";
-// import Forms from "../pages/Forms";
-// import Lists from "../pages/Lists";
-// import Tables from "../pages/Tables";
-// import Tabs from "../pages/Tabs";
-// import Themes from "../pages/Themes";
-// import Navigation from "../pages/Navigation";
-// import GridList from "../pages/GridList.js";
-// import Modal from "../pages/Modal.js";
+import Appbar from '../components/Appbar';
 
 import StorageIngredientsPageContainer from '../containers/StorageIngredientsPageContainer';
 import ShablonIngredientsPageContainer from '../containers/ShablonIngredientsPageContainer';
-// import SupplierPropertyComponent from '../components/SupplierPropertyComponent';
-// import SupplierPropertyListComponent from '../components/SupplierPropertyListComponent';
 import SupplierPropertyListContainer from '../containers/SupplierPropertyListContainer';
 
 const drawerWidth = 330;
@@ -113,7 +86,8 @@ const Routes = props => {
 
 	return (
 		<div>
-			<Router history={history}>
+			<Router history={history} >
+				<Appbar />
 				<div className={classes.root}>
 					<Drawer
 						variant="permanent"
@@ -147,7 +121,8 @@ const Routes = props => {
 						<Route exact path="/storageOrders" component={StorageOrdersContainer} />  
 						<Route exact path="/shablonOrders" component={ShablonOrdersContainer} />  
 						<Route exact path="/suppliersProperty" component={SupplierPropertyListContainer} />  
-
+						<Route exact path="/about" component={AboutPageContainer} />
+						<Route exact path="/" render={() => {return <Redirect to="/about"/>}} />
 					</main>
 				</div>
 			</Router>

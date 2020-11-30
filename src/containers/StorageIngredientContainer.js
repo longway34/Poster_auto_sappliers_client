@@ -17,8 +17,6 @@ class StorageIngredientContainer extends Component {
 			<StorageIngredientComponent 
 				struct={this.props.struct} 
 				suppliers={this.props.suppliers} 
-				// supplier={this.props.supplier} 
-				// selected={this.props.selected} 
 				onChange={this.onChange}/>
 		);
 	}

@@ -1,4 +1,3 @@
-// import { findObjectByName } from "../store/constants"
 
 export const actions = {
 	storages:{
@@ -36,63 +35,6 @@ export const actions = {
 			}
 		}
 	},
-// 	suppliers: {
-// 		GET_REQUEST: "GET_SUPPLIERS_REQUEST",
-// 		GET_RESPONSE: "GET_SUPPLIERS_RESPONSE",
-// 		GET_ERROR: "GET_SUPPLIERS_ERROR",
-// 		CLEAR_LIST: "CLEAR_SUPPLIERS_LIST",
-// 		SELECT: "SELECT_SUPPLIER",
-// 		UP_DATE_REQUEST: "UPDATE_SUPPLIER_INFO_REQUEST",
-// 		UP_DATE_RESPONSE: "UPDATE_SUPPLIER_INFO_RESPONSE",
-// 		UP_DATE_ERROR: "UPDATE_SUPPLIER_ERROR",
-
-// 		request: ()=>{
-// 			return {
-// 				type: actions.suppliers.GET_REQUEST,
-// 			}
-// 		},
-// 		response: (rows) =>{
-// 			return {
-// 				type: actions.suppliers.GET_RESPONSE,
-// 				rows: rows
-// 			}
-// 		},
-// 		error: (err) => {
-// 			return {
-// 				type: actions.suppliers.GET_ERROR,
-// 				err: err
-// 			}
-// 		},
-// 		clear: () => {
-// 			return {
-// 				type: actions.suppliers.CLEAR_LIST
-// 			}
-// 		},
-// 		select: (index) => {
-// 			return {
-// 				type: actions.suppliers.SELECT,
-// 				index: index
-// 			}
-// 		},
-// 		update_request: (supplier_row) => {
-// 			return{
-// 				type: actions.suppliers.UP_DATE_REQUEST,
-// //				row: supplier_row
-// 			}
-// 		},
-// 		update_response: (result) =>{
-// 			return {
-// 				type: actions.suppliers.UP_DATE_RESPONSE,
-// 				rows: result
-// 			}
-// 		},
-// 		update_error: (err) => {
-// 			return {
-// 				type: actions.suppliers.UP_DATE_ERROR,
-// 				err: err
-// 			}
-// 		}
-// 	},
 	ui:{
 		UI_REQUEST: "START_UP_REQUEST",
 		UI_RESPONSE: "START_UP_RSPONSE",

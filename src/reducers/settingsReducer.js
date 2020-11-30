@@ -29,7 +29,6 @@ export default function settingsReducer(state = initialState, action) {
 				firmLogoUrl: action.data.firmLogoUrl ? action.data.firmLogoUrl : "",
 				firmOwner: responce.name,
 				FirmEmail: responce.email,
-				// FirmLogoImage: action.data.FirmLogoImage,
 				FirmPosterIdUrl: responce.COMPANY_ID
 			})
 		}

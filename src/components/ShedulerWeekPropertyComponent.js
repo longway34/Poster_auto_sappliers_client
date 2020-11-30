@@ -1,21 +1,15 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
-// import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 import { red } from '@material-ui/core/colors';
 
 const theme = createMuiTheme({
 	overrides: {
-		// Style sheet name ⚛️
 		MuiTypography: {
-			// Name of the rule
 			body1: {
-				// Some CSS
 				fontSize: 12
 			},
 		},
@@ -56,17 +50,6 @@ const defaultDays = {days: [1, 3, 5]};
 
 export default function ShedulerWeekPropertyComponent(props=defaultDays){
 	const classes = useStyles();
-	// const [state, setState] = React.useState({
-	// 	monday: props.rows.indexOf(0) >=0,
-	// 	tuesday: props.rows.indexOf(1) >= 0,
-	// 	wednesday: props.rows.indexOf(2) >= 0,
-	// 	thursday: props.rows.indexOf(3) >= 0,
-	// 	friday: props.rows.indexOf(4) >= 0,
-	// 	saturday: props.rows.indexOf(5) >= 0,
-	// 	sunday: props.rows.indexOf(6) >= 0,
-	// 	allDay: false,
-	// 	workWeekDay: false,
-	// });
 	const [state, setState] = React.useState({
 		monday: props.days ? props.days.indexOf(1) >= 0 : false,
 		tuesday: props.days ? props.days.indexOf(2) >= 0 : false,
@@ -100,9 +83,7 @@ export default function ShedulerWeekPropertyComponent(props=defaultDays){
 		newState[event.target.name] = event.target.checked;
 		if(!event.target.checked){
 			newState = { ...newState, workWeekDay: false}
-//			setState({...state, newState});
 		}
-//		let _d = outDays(newState); console.log(_d);
 		setState({ ...state, ...newState });
 		if(props.onChange){
 			props.onChange(outDays(newState));
@@ -116,7 +97,6 @@ export default function ShedulerWeekPropertyComponent(props=defaultDays){
 			newState = { ...newState, monday: true, tuesday: true, wednesday: true, thursday: true, friday: true, saturday: false, sunday: false };
 		}
 		setState({ ...state, ...newState });
-//		let _d = outDays(newState); console.log(_d);
 		if (props.onChange) {
 			props.onChange(outDays(newState));
 		}
@@ -126,7 +106,6 @@ export default function ShedulerWeekPropertyComponent(props=defaultDays){
 		<div className={classes.root}>
 			<ThemeProvider theme={theme}>
 			<FormControl component="fieldset" className={classes.formControl}>
-				{/* <FormLabel component="legend">Дни недели</FormLabel> */}
 				<FormGroup>
 					<FormControlLabel
 						control={<Checkbox checked={monday} onChange={handleChange} name="monday" color='primary'/>}
@@ -147,7 +126,6 @@ export default function ShedulerWeekPropertyComponent(props=defaultDays){
 				</FormGroup>
 			</FormControl>
 			<FormControl component="fieldset" className={classes.formControl}>
-				{/* <FormLabel component="legend"><span>...</span></FormLabel> */}
 				<FormGroup>
 					<FormControlLabel
 						control={<Checkbox checked={friday} onChange={handleChange} name="friday" color='primary'/>}
@@ -166,15 +144,9 @@ export default function ShedulerWeekPropertyComponent(props=defaultDays){
 						label="Рабочие дни"
 					/>
 				</FormGroup>
-				{/* <FormHelperText>Отметьте нужные дни</FormHelperText> */}
 			</FormControl>
 			</ThemeProvider>
 		</div>
 	);
 };
 
-// ShedulerWeekPropertyComponent.propTypes = {
-	
-// };
-
-//export default ShedulerWeekPropertyComponent;

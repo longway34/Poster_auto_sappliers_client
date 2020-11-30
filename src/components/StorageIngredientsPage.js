@@ -1,24 +1,12 @@
 import React from 'react';
-// import StorageIngredientsContainer from '../containers/StorageIngredientContainer';
-//import StorageSupplyCategoryComponemt from '../components/StorageSupplyCategoryComponent'
 import StorageIngredientComponent from '../components/StorageIngredientComponent';
 import ProductCategoryComponent from './ProductCategoryComponent';
-//import {ExpansionPanel} from '@material-ui/core'
-// import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { Typography, ButtonGroup, Button } from '@material-ui/core';
 import MySpinner from './MySpinner';
 import { Link } from "react-router-dom";
-// import ListItem from "@material-ui/core/ListItem";
-
-// const useStyles = makeStyles((theme) => ({
-// 	root: {
-// 		flexGrow: 1,
-// 	},
-// }));
 
 export default function StorageIngredientsPage(props){
-	// const classes = useStyles();
 
 	const [isChanged, setChanged] = React.useState(false);
 

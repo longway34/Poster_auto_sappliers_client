@@ -30,9 +30,7 @@ export default function storageIngredientsReducer(state = initialState, action) 
 			let newState = Object.assign({}, state);
 			let part = findObjectByName(newState.struct, action.struct.id);
 			if (part) {
-				// part.min_left++;
 				part = Object.assign(part, action.struct);
-				// part.min_left++;
 				return newState;
 			}
 			return state

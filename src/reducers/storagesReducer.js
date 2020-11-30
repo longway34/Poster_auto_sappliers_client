@@ -8,13 +8,10 @@ export default function storagesReducer(state = initialState, action) {
 			return Object.assign({}, state, {
 					storages_id: action.storages_id,
 					isFetching: true,
-//					rows: {},
 					err: {}
 			})
 		}
 		case actions.storages.GET_RESPONSE: {
-//			let str = JSON.stringify(action.rows);
-
 			let newState = {
 					rows: action.rows,
 					isFetching: false,
@@ -23,8 +20,6 @@ export default function storagesReducer(state = initialState, action) {
 			}
 			console.log(action.type);
 			return Object.assign({}, state, newState)
-//			console.log("next, new state: ", state, newState)
-//			return newState;
 		}
 		case actions.storages.CLEAR_LIST: {
 			return Object.assign({}, state, {

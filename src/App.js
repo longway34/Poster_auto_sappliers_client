@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Appbar from './components/Appbar.js';
+// import Appbar from './components/Appbar.js';
 import Routes from './routes/index'
 import './App.css';
 import StartUpContainer from './containers/StartUpContainer'
@@ -13,7 +13,7 @@ class App extends Component {
         <ConfirmProvider>
           <CssBaseline />
           <StartUpContainer >
-            <Appbar />
+            {/* <Appbar /> */}
             <Routes />
           </StartUpContainer>
         </ConfirmProvider>

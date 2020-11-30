@@ -1,22 +1,14 @@
 import React from 'react';
-// import { findObjectByName } from '../store/constants'
-// import { useEffect } from 'react';
 import {getUnitStr} from '../store/constants'
 
-// import FormGroup from '@material-ui/core/FormGroup'
 import Typography from '@material-ui/core/Typography'
 import { Checkbox, Input, Select, MenuItem, Grid, FormControl, InputAdornment, Button, FormHelperText, Tooltip } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-//import classes from '*.module.css';
 
-import SentimentSatisfiedTwoToneIcon /*as trueImage*/ from '@material-ui/icons/SentimentSatisfiedTwoTone';
-import SentimentDissatisfiedTwoToneIcon /*as falseImage*/ from '@material-ui/icons/SentimentDissatisfiedTwoTone';
-// import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import SentimentSatisfiedTwoToneIcon from '@material-ui/icons/SentimentSatisfiedTwoTone';
+import SentimentDissatisfiedTwoToneIcon from '@material-ui/icons/SentimentDissatisfiedTwoTone';
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
 import MoreTwoToneIcon from '@material-ui/icons/MoreTwoTone';
-
-// const tempStruct = require('./temp_data.json');
-// const tempSuppliers = require('./test_suppliers.json');
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -29,11 +21,9 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: "0.8rem"
 	},
 	posterCost:{
-		// fontSize: "0.8rem",
 		color: "#20f"
 	},
 	s2iCost:{
-		// fontSize: "0.8rem",
 		color: "black"
 	},
 	s2iSupplier:{
@@ -44,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 export default function StorageIngredientComponent(props){
 	const classes = useStyles();
 
-		let tempStateIngredient = {};
+	let tempStateIngredient = {};
 
 	const str = props.struct ? props.struct : tempStateIngredient;
 	const suppliers = props.suppliers ? props.suppliers : {};
@@ -58,7 +48,6 @@ export default function StorageIngredientComponent(props){
 	};
 
 	const min_left = parseFloat(str.min_left);
-	// const poster_min_left = parseFloat(str.poster_min_left);
 	if (String(str.min_left).length === 0 || min_left < 0) {
 		str.min_left = "";
 	} else {
@@ -66,7 +55,6 @@ export default function StorageIngredientComponent(props){
 	} 
 
 	const cost = parseFloat(str.cost);
-	// const poster_cost = parseFloat(str.poster_cost);
 	if (String(str.cost).length === 0 || cost < 0) {
 		str.cost = "";
 	} else {
@@ -130,28 +118,6 @@ export default function StorageIngredientComponent(props){
 	}
 
 	React.useEffect(()=>{
-		// if (struct.cost === '' || parseFloat(struct.cost) < 0){
-		// 	if (struct.poster_cost === '' || parseFloat(struct.poster_cost) > 0){
-		// 		onChangeCostHandle(parseFloat(struct.poster_cost).toFixed(2));
-		// 	}
-		// } else {
-		// 	onChangeCostHandle(parseFloat(struct.cost).toFixed(2));
-		// }
-
-		// if (struct.min_left === '' || parseFloat(struct.min_left) < 0) {
-		// 	if (struct.poster_min_left === '' || parseFloat(struct.poster_min_left) > 0) {
-		// 		onChangeMinHandle(parseFloat(struct.poster_min_left).toFixed(getUnitStr(struct.unit).scope));
-		// 	}
-		// } else {
-		// 	onChangeMinHandle(parseFloat(struct.min_left).toFixed(getUnitStr(struct.unit).scope));
-		// }
-
-		// if (struct.max_left !== '' && parseFloat(struct.max_left) >= 0) {
-		// 	onChangeMaxHandle(parseFloat(struct.max_left).toFixed(getUnitStr(struct.unit).scope));
-		// }
-		// if (struct.amount !== '' && parseFloat(struct.amount) >= 0) {
-		// 	onChangeAmountHandle(parseFloat(struct.amount).toFixed(getUnitStr(struct.unit).scope));
-		// }
 	})
 
 	const onChangeMaxHandle = (e) => {
@@ -279,42 +245,6 @@ export default function StorageIngredientComponent(props){
 			return
 		}
 	}
-
-	// const onChangeInputHandle = (e) =>{
-	// 	const target = e.target;
-	// 	let newStruct = { ...struct };
-	// 	let newValue = e.target.value;
-	// 	try{
-	// 		newValue = newValue.replace(',', '.');
-	// 		if (newValue.length > 0){
-	// 			if (isNaN(newValue / parseFloat(newValue) === 0 ? 1 : newValue)) {
-	// 				return;
-	// 			}
-	// 			if(isNaN(newValue)) return;
-	// 		}
-	// 		let change = false;
-	// 		if(target.name === "max"){
-	// 			newStruct.max_left = newValue;
-	// 			newStruct.max_left_info = "s2i";
-	// 			change = true;
-	// 		}
-	// 		if (target.name === "amount") {
-	// 			newStruct.amount = newValue;
-	// 			newStruct.amount_info = "s2i";
-	// 			change = true;
-	// 		}
-	// 		if(change){
-	// 			if(props.onChange){
-	// 				props.onChange(newStruct);
-	// 			}
-	// 			newStruct.usage = 1;
-	// 			setChanget(true);
-	// 			setState(newStruct);
-	// 		}
-	// 	} catch {
-	// 		return
-	// 	}
-	// }
 		
 	const getTitle = (info) =>{
 		if(info === "poster"){

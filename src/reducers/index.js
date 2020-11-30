@@ -1,7 +1,6 @@
 import {combineReducers} from 'redux';
 
 import storagesReducer from './storagesReducer';
-// import initialState from '../store/initialState';
 import uiReducer from './uiReducer';
 import settingsReducer from './settingsReducer';
 import shablonsReducer from './shablonsReducer';
@@ -16,7 +15,6 @@ const rootReducer = combineReducers({
 		shablonOrders: shablonOrdersReducer,
 		storages: storagesReducer,
 		suppliers: suppliersReducer,
-//		suppliers: testSuppliersReducer,
 		ui:	uiReducer,
 		settings: settingsReducer,
 		shablons: shablonsReducer,

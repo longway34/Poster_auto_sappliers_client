@@ -5,7 +5,6 @@ import ShablonIngredientsPage from '../components/ShablonIngredientsPage'
 import { proxyHost } from '../store/constants'
 
 const axios = require('axios');
-//axios.defaults.headers.common = {};
 
 class StorageIngredientsPageContainer extends Component {
 
@@ -73,7 +72,6 @@ const toUpdateData = (ingredients, ret=null)=>{
 	for(let key in ingredients){
 		let ingredient = ingredients[key];
 		if (ingredient.type && ['product', 'ingredient'].indexOf(ingredient.type) >=0){
-//			key = String(key);
 			ret[key] = {};
 			for(let field of ['id', 'min_left', 'min_left_info', 'max_left', 'max_left_info', 'cost', 'cost_info', 'supplier', 'supplier_info', 'usage', 'amount', 'amount_info']){
 
@@ -92,7 +90,6 @@ const toUpdateData = (ingredients, ret=null)=>{
 
 const normalizeIngredient = (ingredient)=>{
 	let ret = Object.assign({}, ingredient);
-	// let key = ret.id;
 	for (let field of ['amount', 'amount_info', 'id', 'min_left', 'min_left_info', 'max_left', 'max_left_info', 'cost', 'cost_info', 'supplier', 'supplier_info', 'usage']) {
 
 		ret[field] = String(ingredient[field] === "" ? -1 : ingredient[field]);
@@ -177,17 +174,6 @@ const mapDispatchToProps = (dispatch) =>{
 				})
 		},
 		onGetOrders: (storage = null, supplier = null) => {
-			// let storage_id = storage && storage.id ? storage.id : -1;
-			// let supplier_id =supplier = supplier && supplier.id ? supplier.id : -1;
-			// dispatch(actions.storageOrders.request(storage_id, supplier_id));
-			// const url = `${proxyHost}/storages/docs?storage_id=${storage_id}&supplier_id=${supplier_id}`;
-			// axios.get(url)
-			// 	.this((response) => {
-			// 		console.log(response.data);
-			// 	})
-			// 	.catch((err) => {
-			// 		dispatch(actions.storageOrders.error(err));
-			// 	})
 			}
 	}
 }

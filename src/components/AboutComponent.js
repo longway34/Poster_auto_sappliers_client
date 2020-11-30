@@ -1,25 +1,24 @@
-import { Link, Paper } from '@material-ui/core';
-import React from 'react';
+import { Card, CardContent } from '@material-ui/core';
+import React, {Component} from 'react';
 import Markdown from 'react-markdown'
+import MySpinner from './MySpinner';
 
 class AboutComponent extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
 
-        this.state = {
-            readme: ""
-        }
     }
 
     render() {
+        let res = (!this.props.isLoading && this.props.readme) ? <Markdown source={this.props.readme} /> : null;
+
         return (
-            <Paper>
-                <Link href="https://github.com/longway34/Poster_auto_sappliers_server/blob/master/README.md" 
-                target="_blank" 
-                rel="noreferrer"
-                title="Об этом проекте" >
-                </Link>
-            </Paper>
+            <Card>
+		        <MySpinner hidden={this.props.isWaiting ? !this.props.isWaiting : true} x={"50vw"} y={"50vh"} />
+                <CardContent>
+                    {res}
+                </CardContent>
+            </Card>
                 
         );
     }

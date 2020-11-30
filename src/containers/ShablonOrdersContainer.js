@@ -118,15 +118,11 @@ const mapDispatchToProps = (dispatch) => {
 			axios.get(url)
 				.then((result) => {
 					let res = parseInt(result.data.result);
-					// if (result.data.result){
 					if (parseInt(res) < 0) {
 						dispatch(actions.shablonOrders.send_response_error(result.data));
 					} else {
 						dispatch(actions.shablonOrders.send_response(result.data));
 					}
-					// } else {
-					// 	dispatch(actions.storageOrders.send_response({result: 0, err: {}, message: {}}));
-					// }
 				})
 				.catch((err) => {
 					dispatch(actions.shablonOrders.error(err));

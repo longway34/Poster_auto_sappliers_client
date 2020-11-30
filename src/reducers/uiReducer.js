@@ -14,7 +14,6 @@ export default function uiReducer(state = initialState, action) {
 		case actions.ui.UI_RESPONSE: {
 			console.log(action.type);
 			return Object.assign({}, state, {
-				// rows: JSON.parse(JSON.stringify(action.rows)),
 					isFetching: false,
 					isStartUpComplite: true,
 					err: {}

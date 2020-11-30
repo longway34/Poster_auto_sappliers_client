@@ -5,17 +5,13 @@ export default function settingsReducer(state = initialState, action) {
 	switch (action.type) {
 		case actions.suppliers.GET_REQUEST:{
 			return Object.assign({}, state, {
-//				current: action.id ? action.id : -1,
 				isFetching: true,
-//				rows: action.rows,
 				err: {}
 			})
 		}
 		case actions.suppliers.UP_DATE_REQUEST: {
 			return Object.assign({}, state, {
-				//				current: action.id ? action.id : -1,
 				isFetching: true,
-				//				rows: action.rows,
 				err: {}
 			})
 		}

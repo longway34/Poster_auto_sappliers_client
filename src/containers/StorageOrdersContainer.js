@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// import StorageOrdersView from '../components/StorageOrderView';
 import { actions } from '../actions';
 import { proxyHost } from '../store/constants'
-// import { render } from '@testing-library/react';
 
 import StorageOrderListComponent from '../components/StorageOrderListComponent';
 import OrdersSendResultDialog from '../components/OrdersSendResultDialog';
@@ -28,9 +26,6 @@ class StorageOrdersContainer extends Component {
 		{
 			if(!this.props.orders.isFetching){
 				let storage_poster_id = this.props.storage ? this.props.storage.poster_id : -1;
-				// if (!this.props.storage){
-				// 	return;
-				// }
 				this.props.onGetOrders(storage_poster_id);
 				const url = `${proxyHost}/storages/docs?storage_id=${storage_poster_id}`;
 				axios.get(url)

@@ -1,11 +1,8 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
-// import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 import { red } from '@material-ui/core/colors';
 
@@ -31,11 +28,8 @@ const useStyles = makeStyles((theme) => ({
 
 const theme = createMuiTheme({
 	overrides: {
-		// Style sheet name ⚛️
 		MuiTypography: {
-			// Name of the rule
 			body1: {
-				// Some CSS
 				fontSize: 12
 			},
 		},
@@ -91,16 +85,13 @@ export default function ShedulerMonthPropertyComponent(props=defaultDays){
 			}
 		} else {
 			if(ind >= 0){
-				// console.log(`Delete name=${event.target.name} i=${ind}; i[ind]=${newState.rows[ind]} from=>`, newState.rows)
 				newState.days.splice(ind, 1);
-				// console.log(`res=>`, newState.rows);
 			}
 		}
 
 		if(!event.target.checked){
 			newState.everyDay = false;
 		}
-		// let _d = outDays(newState); console.log("handleChange out:", _d);
 		setState(newState);
 		if(props.onChange){
 			props.onChange(outDays(newState));
@@ -118,7 +109,6 @@ export default function ShedulerMonthPropertyComponent(props=defaultDays){
 			}
 		}
 		setState(newState);
-		// let _d = outDays(newState); console.log(_d);
 		if (props.onChange) {
 			props.onChange(outDays(newState));
 		}
@@ -139,14 +129,14 @@ export default function ShedulerMonthPropertyComponent(props=defaultDays){
 			for(let j=0; j<7 && count<31; j++){
 				line.push(
 					<FormControlLabel className={{body1: classes.smallFont}}
-						control={<Checkbox /*className={classes.smallPadding}*/ checked={isChecked(count)}  onChange={handleChange} name={getName(count)} color='primary'/>}
+						control={<Checkbox checked={isChecked(count)}  onChange={handleChange} name={getName(count)} color='primary'/>}
 						label={`${count + 1}${count<9 ? ".." : ""}`}
 					/>
 				)
 				if(count === 30){
 					line.push(
-						<FormControlLabel /*className={classes.smallFont}*/
-							control={<Checkbox /*className={classes.smallPadding}*/ checked={state.everyDay} onChange={handleChangeEveryDays} name="everyDay" />}
+						<FormControlLabel 
+							control={<Checkbox checked={state.everyDay} onChange={handleChangeEveryDays} name="everyDay" />}
 							label="Каждый день"
 						/>
 					)
@@ -171,8 +161,3 @@ export default function ShedulerMonthPropertyComponent(props=defaultDays){
 	return getLabels();
 };
 
-// ShedulerWeekPropertyComponent.propTypes = {
-	
-// };
-
-//export default ShedulerWeekPropertyComponent;

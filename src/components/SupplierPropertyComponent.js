@@ -1,20 +1,15 @@
 import React from 'react';
 import { TextField, Card, Grid, CardContent, IconButton, Collapse, Select, FormControl, InputLabel, Checkbox, Typography, FormHelperText, Button } from '@material-ui/core';
-// import classes from '*.module.css';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import SaveIcon from '@material-ui/icons/Save';
-// import { useEffect } from 'react';
 
 const useStyles = makeStyles((theme) => ({
 root: {
 	maxWidth: "100%",
 		padding: "3px",
 		marginRight: 10,
-				// color: "#ce0707",
-		// fontWeight: "bold",
-		// fontStyle: "italic"
 	},
 cardRoot:{
 	marginBottom: "5px"
@@ -114,42 +109,27 @@ const SupplierPropertyComponent = (props) => {
 		// only allows 0-9 inputs
 		let cv = value.replace(/[^\d]/g, '');
 		if(cv.slice(0,1) === "7") cv = cv.slice(1);
-//		const currentValue = value.replace(/[^\d]/g, '');
 		const currentValue = cv;
 
 		const cvLength = currentValue.length;
 
 		if (!previousValue || value.length > previousValue.length) {
 
-			// returns: "x", "xx", "xxx"
 			if (cvLength < 4) return `+7 (${currentValue})`;
 
-			// returns: "(xxx)", "(xxx) x", "(xxx) xx", "(xxx) xxx",
 			if (cvLength < 7) return `+7 (${currentValue.slice(0, 3)}) ${currentValue.slice(3)}`;
 
-			// returns: "(xxx) xxx-", (xxx) xxx-x", "(xxx) xxx-xx", "(xxx) xxx-xxx", "(xxx) xxx-xxxx"
 			return `+7 (${currentValue.slice(0, 3)}) ${currentValue.slice(3, 6)}-${currentValue.slice(6, 8)}-${currentValue.slice(8, 10)}`;
 		}
 	};
 
 	const isValidateAddress = ()=>{
-//		let parrent;
 		let pattern = [0, 1].indexOf(parseInt(dType)) < 0 ? 
 			/^\+[\d]{1}\ \([\d]{2,3}\)\ [\d]{2,3}-[\d]{2,3}-[\d]{2,3}$/ :
 			/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b/i;
-		// let pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b/i;
 		let result = pattern.test(String(dAddress).toLowerCase());
 		return result;
 	}
-
-	// const isValidatePhone = () =>{
-
-	// 	let pattern = /^\+[\d]{1}\ \([\d]{2,3}\)\ [\d]{2,3}-[\d]{2,3}-[\d]{2,3}$/;
-	// 	// let pattern = /^[\+\d\(\)\ -]{4,20}$/;
-	// 	let result = pattern.test(String(dAddress).toLowerCase());
-	// 	return result;
-	// 	// return result;
-	// }
 
 	const onChangeDeliveryAddress = (e) =>{
 		let value = e.target.value;

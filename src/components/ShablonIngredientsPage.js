@@ -1,7 +1,6 @@
 import React from 'react';
 import ProductCategoryComponent from './ProductCategoryComponent';
 import ShablonIngredientComponent from './ShablonIngredientComponent';
-// import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { Typography, ButtonGroup, Button } from '@material-ui/core';
 import MySpinner from './MySpinner';
@@ -32,7 +31,6 @@ export default function ShablonIngredientsPage(props){
 
 	const getContent = () => {
 		const struct = props.ingredients ? props.ingredients : {};
-		//		const keysIngredients = Object.keys(struct);
 		let sortingStruct = [];
 		for (let key in struct) {
 			sortingStruct.push(struct[key])

@@ -3,19 +3,15 @@ import { Link } from "react-router-dom";
 import { Grid } from '@material-ui/core';
 import ShablonPropertyComponent from './ShablonPropertyComponent';
 import ListItem from "@material-ui/core/ListItem";
-// import ListItemIcon from "@material-ui/core/ListItemIcon";
-// import Typography from '@material-ui/core/Typography'
 import SettingsTwoToneIcon from '@material-ui/icons/SettingsTwoTone';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 
 import {myParseInt} from '../store/constants'
-// import { useConfirm } from 'material-ui-confirm';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		// maxWidth: 300,
 		fontSize: 10,
 		marginTop: 6
 	},
@@ -57,9 +53,6 @@ export default function ShablonsListComponent(props){
 	const [state, setState] = React.useState(
 		props.shablons ? props.shablons : tempShablons,
 	)
-	// const [storages, setStorage] = React.useState(
-	// 	props.storage ? props.storage : null
-	// )
 
 	const onSelect = (shablon) =>{
 		setState({...state, current: shablon.id});
@@ -112,7 +105,6 @@ export default function ShablonsListComponent(props){
 		const values = Object.values(rows);
 		let ret = props.storage ? getCommonSetting(props.storage.name) : []; 
 		let newShablonAddaded = false;
-		// ret.push();
 		for(let k=0; k<values.length; k++){
 			const shablon = values[k];
 			if(shablon && myParseInt(shablon.id) < 0) newShablonAddaded = true;

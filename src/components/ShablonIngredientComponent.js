@@ -1,22 +1,14 @@
 import React from 'react';
-// import { findObjectByName } from '../store/constants'
-// import { useEffect } from 'react';
 import { getUnitStr } from '../store/constants'
 
-// import FormGroup from '@material-ui/core/FormGroup'
 import Typography from '@material-ui/core/Typography'
 import { Checkbox, Button, Input, Select, MenuItem, Grid, FormControl, InputAdornment, Tooltip , FormHelperText } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-//import classes from '*.module.css';
 
-import SentimentSatisfiedTwoToneIcon /*as trueImage*/ from '@material-ui/icons/SentimentSatisfiedTwoTone';
-import SentimentDissatisfiedTwoToneIcon /*as falseImage*/ from '@material-ui/icons/SentimentDissatisfiedTwoTone';
-// import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import SentimentSatisfiedTwoToneIcon from '@material-ui/icons/SentimentSatisfiedTwoTone';
+import SentimentDissatisfiedTwoToneIcon from '@material-ui/icons/SentimentDissatisfiedTwoTone';
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
 import MoreTwoToneIcon from '@material-ui/icons/MoreTwoTone';
-
-// const tempStruct = require('./temp_data.json');
-// const tempSuppliers = require('./test_suppliers.json');
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -29,15 +21,12 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: "0.8rem"
 	},
 	posterInput:{
-		// fontSize: "0.8rem",
 		color: "#3f51b5"
 	},
 	s2iInput:{
-		// fontSize: "0.8rem",
 		color: "#800202"
 	},
 	sh2iInput:{
-//		color: "black"
 	}
 }))
 
@@ -118,7 +107,6 @@ export default function ShablonIngredientComponent(props){
 				newStruct.supplier = s2i_suid;
 				newStruct.supplier_info = 's2i';
 			} else {
-				// const poster_suid = parseInt(struct.poster_suid);
 				if (poster_suid > 0) {
 					newStruct.supplier = poster_suid;
 					newStruct.supplier_info = "poster"
@@ -141,37 +129,6 @@ export default function ShablonIngredientComponent(props){
 	}
 
 	React.useEffect(()=>{
-		// if (struct.cost === '' || parseFloat(struct.cost) < 0){
-		// 	const poster_cost = parseFloat(struct.poster_cost);
-		// 	const s2i_cost = parseFloat(struct.s2i_cost);
-		// 	if (!isNaN(s2i_cost) && s2i_cost > 0){
-		// 		onChangeCostHandle(String(s2i_cost));
-		// 	} else if(!isNaN(poster_cost) && poster_cost > 0){
-		// 		onChangeCostHandle(String(poster_cost));
-		// 	}
-		// }
-		// if (struct.min_left === '' || parseFloat(struct.min_left) < 0) {
-		// 	const poster_min_left = parseFloat(struct.poster_min_left);
-		// 	const s2i_min_left = parseFloat(struct.s2i_cost);
-
-		// 	if (!isNaN(s2i_min_left) && s2i_min_left > 0) {
-		// 		onChangeMinHandle(String(s2i_min_left));
-		// 	} else if(!isNaN(poster_min_left) && poster_min_left > 0){
-		// 		onChangeMinHandle(String(poster_min_left));
-		// 	}
-		// }
-		// if (struct.max_left === '' || parseFloat(struct.max_left) < 0) {
-		// 	const s2i_max_left = parseFloat(struct.s2i_max_left);
-		// 	if (!isNaN(s2i_max_left) && s2i_max_left > 0) {
-		// 		onChangeMaxHandle(String(s2i_max_left));
-		// 	}
-		// }
-		// if (struct.amount === '' || parseFloat(struct.amount) < 0) {
-		// 	const s2i_amount = parseFloat(struct.s2i_amount);
-		// 	if (!isNaN(s2i_amount) && s2i_amount > 0) {
-		// 		onChangeAmountHandle(String(s2i_amount));
-		// 	}
-		// }
 	})
 
 	const onChangeMinHandle = (e) =>{
@@ -285,12 +242,9 @@ export default function ShablonIngredientComponent(props){
 				}
 				if (isNaN(newValue)) return;
 			}
-			// let change = false;
-			// const s2i_amount = parseFloat(struct.s2i_amount);
 			if (!target || newValue === "") {
 				newStruct.amount_info = s2i_amount > 0 ? "s2i" : 'sh2i';
 				newStruct.amount = s2i_amount > 0 ? s2i_amount : newValue;
-				// change = true;
 			} else {
 				newStruct.amount = newValue;
 				newStruct.amount_info = 'sh2i';
@@ -402,14 +356,11 @@ export default function ShablonIngredientComponent(props){
 
 	const getDeleteImage = () =>{
 		let disabled = true;
-		// let value = struct.supplier;
 		if(struct.supplier < 0){
 			if(s2i_suid > 0){
-				// value = s2i_suid;
 				disabled = false;
 			} else {
 				if(poster_suid > 0){
-					// value = poster_suid;
 					disabled = false;
 				}
 			}
@@ -470,8 +421,6 @@ export default function ShablonIngredientComponent(props){
 				<Input value={struct.min_left} name="min" type="text" placeholder={struct.min_left_info}
 					onChange={onChangeMinHandle} 
 					endAdornment={<InputAdornment position="end" className="unit">{getUnitStr().unit}</InputAdornment>}					
-//					inputProps={{ 'step': `${getUnitStr().step}`, 'min': 0 }}
-					// style={{ "font-size": "0.7rem" }}
 					title={getTitle(struct.min_left_info)}
 					className={getInputCN(struct.min_left_info)}
 					/>
@@ -483,8 +432,6 @@ export default function ShablonIngredientComponent(props){
 				<Input value={struct.max_left} name="max" type="text" placeholder="Макс. остаток"
 					onChange={onChangeMaxHandle}
 					endAdornment={<InputAdornment position="end" className="unit">{getUnitStr().unit}</InputAdornment>}
-//					inputProps={{'step': `${getUnitStr().step}`, 'min': 0}}
-					// style={{ "font-size": "0.7rem" }}
 					className={getInputCN(struct.max_left_info)}
 					title={getTitle(struct.max_left_info)}/>
 					<FormHelperText>Максимальный остаток</FormHelperText>
@@ -495,8 +442,6 @@ export default function ShablonIngredientComponent(props){
 				<Input value={struct.cost} name="cost" type="text" placeholder={struct.cost_info}
 					onChange={onChangeCostHandle}
 					endAdornment={<InputAdornment disableTypography="true" position="end" className="unit">р.</InputAdornment>}
-					// inputProps={{ 'pattern': '[0-9.]' }}
-					// style={{ "font-size": "0.7rem" }}
 					title={ getTitle(struct.cost_info) }
 					className={getInputCN(struct.cost_info)}
 					/>
@@ -504,13 +449,10 @@ export default function ShablonIngredientComponent(props){
 				</FormControl>
 			</Grid >
 			<Grid className={classes.item} item xs={3}>
-				{/* <TextField className="unit" value={struct.amount} id="amount" type="text" placeholder="Кол-во" label="Кол-во заказа" */}
 				<FormControl>
 				<Input value={struct.amount} name="amount" type="text" placeholder="Кол-во"
 					onChange={onChangeAmountHandle}
 					endAdornment={<InputAdornment disableTypography="true" position="end" >{getUnitStr().unit}</InputAdornment>}
-					// inputProps={{ 'pattern': '[0-9.]' }}
-					// style={{ "font-size": "0.7rem" }}
 					className={getInputCN(struct.amount_info)}
 					title={getTitle(struct.amount_info)} />
 					<FormHelperText>Кол-во для заказа</FormHelperText>
@@ -518,7 +460,5 @@ export default function ShablonIngredientComponent(props){
 				</Grid >
 		</Grid>
 	);
-// }
 }
 
-// export default StorageSupplyIngredientComponent;

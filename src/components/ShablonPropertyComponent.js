@@ -1,37 +1,23 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-// import clsx from 'clsx';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import Collapse from '@material-ui/core/Collapse';
-// import CardActions from '@material-ui/core/CardActions';
-// import IconButton from '@material-ui/core/IconButton';
-// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import TextField from '@material-ui/core/TextField';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Input from '@material-ui/core/Input';
-// import shadows from '@material-ui/core/styles/shadows';
-// import { MuiPickersUtilsProvider, KeyboardTimePicker} from '@material-ui/pickers';
 import ShedulerWeekPropertyComponent from './ShedulerWeekPropertyComponent';
 import ShedulerMonthPropertyComponent from './ShedulerMonthPropertyComponent';
 import { Grid, Button, Checkbox, FormGroup } from '@material-ui/core';
-// import DateFnsUtils from "@date-io/date-fns";
-// import EditLocationTwoToneIcon from '@material-ui/icons/EditLocationTwoTone';
 import SettingsTwoToneIcon from '@material-ui/icons/SettingsTwoTone';
 import CreateTwoToneIcon from '@material-ui/icons/CreateTwoTone';
 import { useConfirm } from 'material-ui-confirm'
 
 const useStyles = makeStyles((theme) => ({
-	// typography: {
-	// 	// In Chinese and Japanese the characters are usually larger,
-	// 	// so a smaller fontsize may be appropriate.
-	// },
 	root: {
-		// maxWidth: 300,
 		fontSize: 10,
 		marginTop: 6
 	},
@@ -60,19 +46,16 @@ const ShablonPropertyComponent = props => {
 		id: -1,
 		name: "",
 		time: "00:00:00",
-//		nextSupply: "...",
 		type: 0, // week days
 		active: false, // 0 - false; ather - true
 		days: []
 	}
 	const [expanded, setExpanded] = React.useState(false);
 	const [state, setState] = React.useState(shablon);
-	// const [current, setCurrent] = React.useState(props.current ? props.current : state.id);
 
 		
 	const handleExpandClick = () => {
 		setExpanded(!expanded);
-//		setSelected(!selected);
 	};
 
 	function daysInMonth(date) {
@@ -181,14 +164,12 @@ const ShablonPropertyComponent = props => {
 	(<ShedulerMonthPropertyComponent days={state.days} onChange={onChange} />)
 
 	const onSelectHandle = () => {
-//		console.debug("Выбрали элемент...");
 		if(props.onSelect){
 			props.onSelect(state);
 		}
 		if(isSelected()){
 			handleExpandClick();
 		}
-//		setSelected(!selected);
 	}
 
 	const isSelected = () => {
@@ -221,18 +202,6 @@ const ShablonPropertyComponent = props => {
 				title={(!state.name || state.name === "") ? "Новый шаблон..." : state.name}
 				subheader={nextSupply()}
 			/>
-			{/* <CardActions disableSpacing>
-				<IconButton
-					className={clsx(classes.expand, {
-						[classes.expandOpen]: expanded,
-					})}
-					onClick={handleExpandClick}
-					aria-expanded={expanded}
-					aria-label="show more"
-				>
-					<ExpandMoreIcon />
-				</IconButton>
-			</CardActions> */}
 			<Collapse in={expanded && (props.current === state.id)} timeout="auto" unmountOnExit classes={{ wrapperInner:classes.wrapperInner}}>
 				<CardContent>
 					<Grid container justify="flex-start">
@@ -242,19 +211,6 @@ const ShablonPropertyComponent = props => {
 							</Grid>
 							<Grid item xs={2}>
 								<Input type="time" value={state.time} onChange={onChangeTimeHandle} />
-								{/* <input required={true} key={`time_input`} type="time" id={`time_input`} value={state.time} onChange={onChangeTimeHandle} /> */}
-								{/* <MuiPickersUtilsProvider utils={DateFnsUtils}>
-									<KeyboardTimePicker
-										margin="normal"
-										id="time-picker"
-										label="Time picker"
-										value={state.time}
-										onChange={onChangeTimeHandle}
-										KeyboardButtonProps={{
-											'aria-label': 'change time',
-										}}
-									/>
-								</MuiPickersUtilsProvider> */}
 							</Grid>
 						</Grid>
 						<Grid item xs={12} direction="row">
@@ -267,7 +223,6 @@ const ShablonPropertyComponent = props => {
 									control={<Checkbox checked={state.active} value={state.active}/>}
 									label={state.active ? "Активен" : "Отключен"} />
 							</FormGroup>
-							{/* <Checkbox checked={state.active} label="Активен" onChange={onChangeActiveHandle} /> */}
 						</Grid>
 						<Grid item xs={12}>
 							{daysPanel}

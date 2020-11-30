@@ -1,34 +1,21 @@
 import React from 'react';
-// import { useEffect } from 'react';
 import clsx from 'clsx';
 import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
-// import { findObjectByName } from '../store/constants';
 import { Grid, Typography, Checkbox, FormControl, Select, MenuItem, 
 	Card, Collapse, CardContent, IconButton, FormHelperText} from '@material-ui/core';
 import CodeTwoToneIcon from '@material-ui/icons/CodeTwoTone';
 import StorageIngredientComponent from './StorageIngredientComponent';
 import ShablonIngredientComponent from './ShablonIngredientComponent';
-	// import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-	// import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-	// import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-// import StorageIngredientContainer from '../containers/StorageIngredientContainer';
 
 const defaultStruct = {
 	name: "", supplier: -1, usage: false
 };
-// const tempSuppliers = require('./test_suppliers.json');
 
 const theme = createMuiTheme({
 	overrides: {
-		// Style sheet name ⚛️
 		MuiCardContent: {
-			// Name of the rule
-			// body1: {
-			// 	// Some CSS
-			// 	fontSize: 12
-			// },
 			root:{
 				padding: 0,
 				borderBottom: "solid 1px",
@@ -54,8 +41,6 @@ const useStyles = makeStyles((theme) => ({
 		padding: 0,
 		marginRight: 10,
 		color: "#ce0707",
-		// fontWeight: "bold",
-		// fontStyle: "italic"
 	},
 	item: {
 		padding: 3
@@ -242,11 +227,8 @@ export default function ProductCategoryComponent(props){
 					{childs}
 				</CardContent>
 			</Collapse>
-			{/* <CardActions disableSpacing>
-			</CardActions> */}
 		</Card> 
 	</ThemeProvider>
 	);
 };
 
-// export default StorageSupplyCategoryComponent;

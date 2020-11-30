@@ -3,16 +3,12 @@ import { Card, Grid, Typography, Collapse, IconButton, CardContent, ButtonGroup,
 import { makeStyles } from '@material-ui/core/styles';
 import MySpinner from './MySpinner';
 import StorageOrderView from './StorageOrderView'
-// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-// import clsx from 'clsx';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import EmailTwoToneIcon from '@material-ui/icons/EmailTwoTone';
-// import { KeyboardArrowDown } from 'material-ui-icons';
 
 const useStyles = makeStyles((theme) => ({
 		root: {
-			// maxWidth: 345,
 			margin: "5px",
 			paddingBottom: "5px"
 		},
@@ -31,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
 
 const StorageOrderListComponent = (props) => {
 	const classes = useStyles();
-	// const storages = props.storages ? props.storages : {};
 	const [expanded, setExpanded] = React.useState({});
 
 	const handleExpandClick = (e) => {
@@ -42,20 +37,14 @@ const StorageOrderListComponent = (props) => {
 			let newExpanded = Object.assign({}, expanded, {[index]: newValue})
 			setExpanded(newExpanded);
 		}
-		// setExpanded(!expanded);
 	};
 
 
 	const expandButton = (index)=>{
 		return (
 		<IconButton
-			// className={clsx(classes.expand, {
-			// 	[classes.expandOpen]: expanded,
-			// })}
 			onClick={handleExpandClick}
 			id={index}
-			// aria-expanded={expanded}
-			// aria-label="show more"
 			size="small"
 		>
 				{expanded[index] ? (<KeyboardArrowUpIcon id={index} />) : (<KeyboardArrowDownIcon id={index}/>)}
@@ -118,12 +107,6 @@ const StorageOrderListComponent = (props) => {
 								<Grid container direction="row" justify="flex-end">
 									<ButtonGroup>
 										<Button id={count}
-												// inputProps={
-												// 	{supplier_id: {supplier_id},
-												// 	 supplier_poster_id: {supplier_poster_id},
-												// 	 storage_id: {storage_id},
-												// 	 storage_poster_id: {storage_poster_id}}
-												// }
 												onClick={onSendClickHandle} size="small"
 												color='primary'
 											startIcon={<EmailTwoToneIcon variant={'primary'} />}

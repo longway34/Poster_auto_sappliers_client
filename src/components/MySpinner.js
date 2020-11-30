@@ -5,12 +5,9 @@ class MySpinner extends Component {
 	render() {
 		let hiddenStyle = {
 			position: 'fixed',
-//			backgroundColor: 'lightblue',
 			transform: 'left 1.5s'
 		}
 		const hidden = this.props.hidden;
-		// const left = !hidden ? this.props.x : "-100vm"; 
-		// const top = !hidden ? this.props.y : "-100vh"; 
 
 		if(!hidden){
 			hiddenStyle.left = this.props.x ? this.props.x : "50vw";

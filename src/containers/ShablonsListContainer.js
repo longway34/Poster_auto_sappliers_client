@@ -90,7 +90,6 @@ const mapDispatchToProps = (dispatch) => {
 			.then(response =>{
 				dispatch(actions.shablons.clear());
 				dispatch(actions.shablons.response(response.data, storage))
-//				dispatch(actions.shablons.select(storage_id))
 			})
 			.catch(err=>{
 				dispatch(actions.shablons.error(err));
