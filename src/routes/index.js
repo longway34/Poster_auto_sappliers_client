@@ -122,7 +122,7 @@ const Routes = props => {
 						<Route exact path="/shablonOrders" component={ShablonOrdersContainer} />  
 						<Route exact path="/suppliersProperty" component={SupplierPropertyListContainer} />  
 						<Route exact path="/about" component={AboutPageContainer} />
-						<Route exact path="/" render={() => {return <Redirect to="/about"/>}} />
+						<Route exact path="/" component={AboutPageContainer} />
 					</main>
 				</div>
 			</Router>

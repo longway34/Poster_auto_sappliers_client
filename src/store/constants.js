@@ -1,5 +1,5 @@
 export const getProxyHost = () => {
-	var port = document.location.protocol === 'https:' ? '443' : '80';
+	var port = document.location.protocol === 'https:' ? '8443' : '8080';
 	var protocol = document.location.protocol;
 	return `${protocol}//longway34.ru:${port}`;
 	// return "http://localhost:3001";
