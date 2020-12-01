@@ -5,6 +5,8 @@ export const getProxyHost = () => {
 	// return "http://localhost:3001";
 }
 
+export const rootPrefix = '/poster'
+
 export const proxyHost = getProxyHost();
 
 export const myParseInt = (strNum) => {

@@ -24,6 +24,8 @@ import StorageIngredientsPageContainer from '../containers/StorageIngredientsPag
 import ShablonIngredientsPageContainer from '../containers/ShablonIngredientsPageContainer';
 import SupplierPropertyListContainer from '../containers/SupplierPropertyListContainer';
 
+const rootPrefix = require('../store/constants').rootPrefix;
+
 const drawerWidth = 330;
 
 const theme = createMuiTheme({
@@ -97,13 +99,13 @@ const Routes = props => {
 					>
 						<ThemeProvider theme={theme}>
 						<List>
-							<ListItem button component={Link} to="/suppliersProperty">
+							<ListItem button component={Link} to={`${rootPrefix}/suppliersProperty`}>
 								<ListItemIcon>
 									<InboxIcon color="primary" />
 								</ListItemIcon>
 								<Typography variant="h6">Поставщики</Typography>
 							</ListItem>
-							<ListItem button component={Link} to="/">
+							<ListItem button component={Link} to={`${rootPrefix}`}>
 								<ListItemIcon>
 									<InboxIcon color="primary"/>
 								</ListItemIcon>
@@ -120,9 +122,9 @@ const Routes = props => {
 						<Route exact path="/storageIngredients" component={StorageIngredientsPageContainer} />  
 						<Route exact path="/storageOrders" component={StorageOrdersContainer} />  
 						<Route exact path="/shablonOrders" component={ShablonOrdersContainer} />  
-						<Route exact path="/suppliersProperty" component={SupplierPropertyListContainer} />  
-						<Route exact path="/about" component={AboutPageContainer} />
-						<Route exact path="/" component={AboutPageContainer} />
+						<Route exact path={`${rootPrefix}/suppliersProperty`} component={SupplierPropertyListContainer} />  
+						<Route exact path={`${rootPrefix}/about`} component={AboutPageContainer} />
+						<Route exact path={`${rootPrefix}`} component={AboutPageContainer} />
 					</main>
 				</div>
 			</Router>

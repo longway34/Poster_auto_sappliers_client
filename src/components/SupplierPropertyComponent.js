@@ -237,7 +237,8 @@ const SupplierPropertyComponent = (props) => {
 									<option value={-1} disabled={true} selected={parseInt(supplier.type_delivery_info) === -1}>Без доставки заказов</option>
 									<option value={0} selected={parseInt(supplier.type_delivery_info) === 0}>Доставка заказов Email-HTML</option>
 									<option value={1} selected={parseInt(supplier.type_delivery_info) === 1}>Доставка заказов Email-Excel</option>
-									<option value={2} selected={parseInt(supplier.type_delivery_info) === 3}>Доставка заказов Viber</option>
+									<option value={2} disabled selected={parseInt(supplier.type_delivery_info) === 3}>Доставка заказов Viber</option>
+									<option value={2} disabled selected={parseInt(supplier.type_delivery_info) === 3}>Доставка заказов Telegram</option>
 									</Select>
 							</FormControl>
 						</Grid>

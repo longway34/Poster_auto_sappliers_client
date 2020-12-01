@@ -30,7 +30,7 @@ export default function ButtonAppBar(props) {
 				</Toolbar>
 				<Toolbar>
 					<ButtonGroup size="small" aria-label="small outlined primary button group">
-						<Button color="primary" component={RouterLink} to="/about">О проекте</Button>
+						<Button color="primary" component={RouterLink} to="/poster/about">О проекте</Button>
 						<Button color="primary" href='https://github.com/longway34/Poster_auto_suppliers_server' target="_blank" rel='noreferrer'>Исходники (сервер)</Button>
 						<Button color="primary" href='https://github.com/longway34/Poster_auto_suppliers_client' target="_blank" rel='noreferrer'>Исходники (клиент)</Button>
 						<Button disabled={true}>login</Button>
