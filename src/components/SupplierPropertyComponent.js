@@ -25,7 +25,9 @@ collapseRoot:{
 	paddingBottom: "5px"
 }
 }))
-
+/**
+ * temp_supplier - структура для отладки
+ */
 const temp_supplier = {
 	id: 3,
 	sql_id: 3,
@@ -50,6 +52,22 @@ const temp_supplier = {
 
 }
 
+/**
+ * @typedef {Object} Supplier 
+ * @param {string} address_delivery_info "адрес доставки"
+ * @param {enum} type_delivery_info "способ доставки: <br>
+ * 				-1 - без доставки;<br>
+ * 				0  - E-Mail HTML;<br>
+ * 				1  - E-Mail Excel;<br>
+ * 				2  - Viber HTML;<br>
+ * 				3  - Telegram HTML"<br>"
+ */
+
+/** 
+ * Создает компонент для просмотра/изменения свойст Поставщика (способ и адрес доставки)
+ * @param {Supplier} props 
+ *  }
+ */
 const SupplierPropertyComponent = (props) => {
 	const classes = useStyles();
 
@@ -238,7 +256,7 @@ const SupplierPropertyComponent = (props) => {
 									<option value={0} selected={parseInt(supplier.type_delivery_info) === 0}>Доставка заказов Email-HTML</option>
 									<option value={1} selected={parseInt(supplier.type_delivery_info) === 1}>Доставка заказов Email-Excel</option>
 									<option value={2} disabled selected={parseInt(supplier.type_delivery_info) === 3}>Доставка заказов Viber</option>
-									<option value={2} disabled selected={parseInt(supplier.type_delivery_info) === 3}>Доставка заказов Telegram</option>
+									<option value={3} disabled selected={parseInt(supplier.type_delivery_info) === 3}>Доставка заказов Telegram</option>
 									</Select>
 							</FormControl>
 						</Grid>
