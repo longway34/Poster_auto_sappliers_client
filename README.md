@@ -43,13 +43,13 @@
 
 Обеспечивает пользователю возможность создание/изменение настроек расписания сбора остатков, формирования заказов (заявок), их отправку на заранее определенные адреса поставщиков, просмотр истории заказов (заявок).
 
-![Настройка шаблонов]( "Настройка шаблонов")
+![Настройка шаблонов](https://raw.githubusercontent.com/longway34/Poster_auto_suppliers_client/master/public/demo_images/Poster_Shablon.png "Настройка шаблонов")
 Настройка шаблонов
 
-![Настройка поставщиков]( "Настройка поставщиков")
+![Настройка поставщиков](https://raw.githubusercontent.com/longway34/Poster_auto_suppliers_client/master/public/demo_images/Poster_Suppliers.png "Настройка поставщиков")
 Настройка поставщиков
 
-![Примеры заказов]( "Примеры заказов")
+![Примеры заказов](https://raw.githubusercontent.com/longway34/Poster_auto_suppliers_client/master/public/demo_images/Poster_Supplies.png "Примеры заказов")
 Примеры заказов
 
 # Используемые программные продукты:
